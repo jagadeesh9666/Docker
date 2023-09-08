@@ -1,0 +1,21 @@
+---
+version: "3.9"
+services:
+  gol:
+    build:
+      context: .
+    networks:
+      - gol
+    ports:
+      - target: 8080
+        published: 35000
+        protocol: tcp
+        mode: host
+# this is for gol commerce file
+
+networks:
+  gol:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.102.0/24

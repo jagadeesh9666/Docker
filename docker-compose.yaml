@@ -1,0 +1,23 @@
+---
+version: "3.9"
+services:
+  spc-srv:
+    build: 
+      context: .
+    networks:
+      - students-net
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+        mode: host
+# volumes:
+#   spc:
+# this file is for creating spc from dockerfile present locally
+networks:
+  students-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.101.0/24
+        
